@@ -1,4 +1,4 @@
-# Bank Customer Statement Processdor
+# Bank Customer Statement Processor
 
 This is a simple file processor. It takes .xml & .csv files and generates a pdf report based on the validations of uniqueness of the transaction reference and the end balance.
 
