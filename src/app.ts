@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
 import { BASE_URL } from './constants';
 import recordRouter from './api/record/processRecord';
 import errorHandler from './errors/errorHandler';
@@ -6,6 +7,7 @@ import errorHandler from './errors/errorHandler';
 async function initializeApp(): Promise<Application> {
     const app: Application = express();
 
+    app.use(cors());
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use(BASE_URL, recordRouter);

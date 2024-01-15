@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import AppError from './AppError';
 
-const errorHandler = async (error: Error, req: Request, res: Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const errorHandler = async (error: Error, req: Request, res: Response, next: NextFunction) => {
   let statusCode = 500;
   let message = 'Internal Server error';
 

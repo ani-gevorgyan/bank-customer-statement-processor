@@ -1,7 +1,7 @@
 export const BASE_URL='/api/v1';
 
 export enum FILE_TYPE {
-    XML = 'application/xml',
+    XML = 'text/xml',
     CSV ='text/csv'
 }
 
