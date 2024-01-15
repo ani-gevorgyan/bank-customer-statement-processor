@@ -16,30 +16,38 @@ Eslint is present to handle the code formatting.
 ## Available Scripts
 
 In the project directory, you can run:
+### Install Dependancies
 
-### `npm install`
+```
+npm install
+```
 
-## Start app
+### Start app
 
-### `npm run start-dev`
+```
+npm run start-dev
+```
 
 Runs the app in the development mode on port 4000.<br />
 
 The server will reload if you make edits.<br />
+
+###  Run Tests 
+```
+npm run test
+```
+
+### Format Code - Run 
+```
+npm run format
+``` 
+(uses eslint for formatting)
 
 ## Postman link
 
 #### https://www.postman.com/gold-space-386125/workspace/ama/collection/11457046-7679e8bc-1609-4049-ac48-15459f05860e?action=share&creator=11457046
 
 Postcards collection is provided with data to test the backend locally.
-
-## Running Tests
-
-####  Run Tests `npm run test`
-
-## Format Code
-
-#### Run `npm run format` (uses eslint for formatting)
 
 
 
