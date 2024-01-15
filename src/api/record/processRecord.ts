@@ -13,11 +13,9 @@ router.post('/record',
     upload.single('file'),
     asyncMiddlewareWrapper(fileFormatValidate),
     asyncMiddlewareWrapper(async (req: Request, res: Response) => {
-        console.log('req.files------>', req.file);
         const { file } = req;
 
         const data = recordService.processFile(file!);
-        console.log('data---->', data);
         recordService.removeFile(file!);
 
         res.writeHead(200, {

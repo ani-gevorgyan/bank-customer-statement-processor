@@ -9,7 +9,6 @@ import { generateCommonJsonObjFromParsedCsv, generateCommonJsonObjFromParsedXml 
 class RecordService {
 
     processFile(fileData: Express.Multer.File): RecordCheckResult {
-        console.log('fileData---->', fileData);
         const json = this.parseFileDataToCommonJson(fileData);
         return this.validateRecord(json);
     }
@@ -35,20 +34,15 @@ class RecordService {
     }
 
     validateRecord(records: Record[]): RecordCheckResult {
-        console.log('records---->', records[0]);
         const duplicates = this.checkForDuplicates(records);
         const endBalanceCheckResult = this.checkEndBalance(records);
-        // console.log('duplicates---->', duplicates);
-        // console.log('endBalanceCheck---->', endBalanceCheckResult);
         return { duplicates, endBalanceCheckResult };
     }
 
     checkForDuplicates(records: Record[]): Record[] {
         let duplicates: Record[] = [];
         const refs = records.map((item) => item.reference);
-        console.log('refs---->', refs);
         const duplicateRefs = refs.filter((item, index) => refs.indexOf(item) !== index);
-        console.log('duplicate refs---->', duplicateRefs);
         if(duplicateRefs.length) {
             duplicates = records.filter((item) => duplicateRefs.some((ref) => item.reference === ref));
         }
@@ -57,9 +51,6 @@ class RecordService {
 
     checkEndBalance(records: Record[]): Record[] {
         const result = records.filter((item) => {
-            // console.log('item---->', item);
-            // console.log('item.mutation---->', item.mutation);
-            // console.log("item.startBalance + item.mutation---->", Number((item.startBalance + item.mutation).toFixed(2)))
             return Number((item.startBalance + item.mutation).toFixed(2)) !== item.endBalance;
         });
         return result;
